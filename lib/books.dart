@@ -1,4 +1,3 @@
-import 'package:book_reading_app/navbar.dart';
 import 'package:flutter/material.dart';
 
 class Books extends StatelessWidget {
