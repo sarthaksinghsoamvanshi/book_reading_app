@@ -30,9 +30,14 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            height: 230,
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            height: 250,
+            margin: EdgeInsets.symmetric(horizontal: 10 ,vertical: 10),
             child: Books(),
+          ),
+          Container(
+            height: 100,
+            width: double.infinity,
+            color:Colors.green
           )
         ],
       ),
