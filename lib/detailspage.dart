@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {
+  final rating;
+  final author;
+  final bookname;
+  final image;
+
+  const DetailsPage({this.rating, this.author, this.bookname, this.image});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +36,7 @@ class DetailsPage extends StatelessWidget {
                               width: 175,
                               // color: Colors.blue,
                               child: Text(
-                                "Crushing & influence ",
+                                bookname,
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -46,7 +52,7 @@ class DetailsPage extends StatelessWidget {
                               padding: EdgeInsets.only(top: 10),
                               // color: Colors.black,
                               child: Text(
-                                "Author",
+                                author,
                                 style: TextStyle(
                                   // color: Colors.black,
                                   // fontWeight: FontWeight.bold,
@@ -83,7 +89,7 @@ class DetailsPage extends StatelessWidget {
                         height: 200,
                         width: 130,
                         color: Colors.black,
-                        child: Image.asset("images/cover.jpg"),
+                        child: Image.asset(image),
                       ),
                     ),
                     Positioned(
@@ -123,7 +129,7 @@ class DetailsPage extends StatelessWidget {
                           ),
                           SizedBox(height: 5),
                           Text(
-                            "4.2",
+                            "$rating",
                           )
                         ],
                       ),
@@ -135,14 +141,11 @@ class DetailsPage extends StatelessWidget {
                 margin: EdgeInsets.only(top: 330, left: 15, right: 15),
                 child: Column(
                   children: [
-                    buildChapter(),
-                    buildChapter(),
-                    buildChapter(),
-                    buildChapter(),
-                    buildChapter(),
-                    buildChapter(),
-                    buildChapter(),
-                    buildChapter(),
+                    buildChapter(index: 1, line: "Value of money for peple", chapter: "Money"),
+                    buildChapter(index: 2, line: "Vaues a person should have", chapter: "Value"),
+                    buildChapter(index: 3, line: "Respect evryone and anyone", chapter: "Respect"),
+                    buildChapter(index: 4, line: "Society is for people", chapter: "Society"),
+                    buildChapter(index: 5, line: "Cluture is traditions followed", chapter: "Culture"),
                   ],
                 ),
               ),
@@ -153,7 +156,7 @@ class DetailsPage extends StatelessWidget {
     );
   }
 
-  Container buildChapter() {
+  Container buildChapter({String chapter, String line, int index}) {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: 10,
@@ -173,7 +176,7 @@ class DetailsPage extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            flex: 5,
+            flex: 8,
             child: Container(
               // color: Colors.amber,
               padding: EdgeInsets.symmetric(horizontal: 30),
@@ -188,13 +191,13 @@ class DetailsPage extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(
-                          "CHAPTER 1 :",
+                          "CHAPTER $index :",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(width: 10),
                         Text(
-                          "Money",
+                          "$chapter",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
@@ -202,7 +205,7 @@ class DetailsPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    child: Text("Life is a journey"),
+                    child: Text(line),
                   ),
                 ],
               ),
@@ -210,9 +213,12 @@ class DetailsPage extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: Icon(
-              Icons.arrow_forward_ios,
-              size: 18,
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: Icon(
+                Icons.arrow_forward_ios,
+                size: 18,
+              ),
             ),
           )
         ],

@@ -1,8 +1,10 @@
+import 'package:book_reading_app/detailspage.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
-class Box extends StatelessWidget{
-  Widget build(BuildContext context){
+
+class Box extends StatelessWidget {
+  Widget build(BuildContext context) {
     return Container(
       height: 210,
       width: 220,
@@ -29,19 +31,34 @@ class Box extends StatelessWidget{
                     child: Row(
                       children: [
                         Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(30),
-                                bottomRight: Radius.circular(30),
+                          child: GestureDetector(
+                            onTap: () => {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                    DetailsPage(
+                                    bookname: "The World of Dreams",
+                                    author: "Sarthak..",
+                                    image: "images/cover.jpg",
+                                    rating: 4.9,
+                                  ),
+                                ),
+                              )
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  bottomRight: Radius.circular(30),
+                                ),
                               ),
+                              child: Text(
+                                "Read",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              alignment: Alignment.center,
                             ),
-                            child: Text(
-                              "Read",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            alignment: Alignment.center,
                           ),
                         ),
                       ],
@@ -63,7 +80,7 @@ class Box extends StatelessWidget{
                             color: Colors.amber,
                           ),
                           SizedBox(height: 5),
-                          Text("4.5")
+                          Text("4.9")
                         ],
                       ),
                       Wrap(children: [
@@ -86,15 +103,19 @@ class Box extends StatelessWidget{
                         Text("New York Time Best for 2020"),
                         Wrap(
                           children: [
-                            Text(
-                              "sarthak singh",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 30),
+                            Container(
+                              // color: Colors.amber,
+                              width: 160,
+                              child: Text(
+                                "The Dreams",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 30),
+                              ),
                             ),
                           ],
                         ),
                         Text(
-                          "author",
+                          "Sarthak Singh",
                           style: TextStyle(fontSize: 20),
                         ),
                       ],

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(debugShowCheckedModeBanner: false,home: MyApp()));
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,9 +11,12 @@ class MyApp extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
+       
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("images/cover.jpg"), fit: BoxFit.cover),
+           color: Colors.black,
+          // image: DecorationImage(
+          //     image: AssetImage("images/cover.jpg"), fit: BoxFit.cover),
+          
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,15 +54,15 @@ class MyApp extends StatelessWidget {
                 width: 180,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.7),
+                  color: Colors.white.withOpacity(0.7),
                   borderRadius: BorderRadius.all(
                     Radius.circular(20),
                   ),
                   boxShadow: [
                     BoxShadow(
-                        offset: Offset(5, 5),
-                        blurRadius: 20,
-                        spreadRadius: 2,
+                        // offset: Offset(2, 2),
+                        // blurRadius: 20,
+                        // spreadRadius: 0,
                         color: Colors.white)
                   ],
                 ),
@@ -68,7 +70,7 @@ class MyApp extends StatelessWidget {
                 // width: MediaQuery.of(context).size.width,
                 child: Text(
                   "start reading",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
               ),
             ),

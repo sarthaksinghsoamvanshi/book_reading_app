@@ -8,25 +8,25 @@ class Books extends StatelessWidget {
       {
         "bookname": "sarthak & singh",
         "author": "Jkrowling",
-        "image": "image",
+        "image": "images/cover.jpg",
         "rating": 4.5,
       },
       {
         "bookname": "sarthak",
         "author": "Jkrowling",
-        "image": "image",
-        "rating": 4
+         "image": "images/cover.jpg",
+        "rating": 4.0
       },
       {
         "bookname": "sarthak",
         "author": "Jkrowling",
-        "image": "image",
-        "rating": 5
+         "image": "images/cover.jpg",
+        "rating": 5.0
       },
       {
         "bookname": "sarthak",
         "author": "Jkrowling",
-        "image": "image",
+        "image": "images/cover.jpg",
         "rating": 4.7
       },
     ];
@@ -70,7 +70,12 @@ class Books extends StatelessWidget {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          DetailsPage(),
+                                          DetailsPage(
+                                            bookname: books[index]["bookname"],
+                                            author: books[index]["author"],
+                                            image: books[index]["image"],
+                                            rating: books[index]["rating"],
+                                          ),
                                     ),
                                   )
                                 },
