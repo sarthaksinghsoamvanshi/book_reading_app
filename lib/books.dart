@@ -1,3 +1,4 @@
+import 'package:book_reading_app/detailspage.dart';
 import 'package:flutter/material.dart';
 
 class Books extends StatelessWidget {
@@ -64,19 +65,29 @@ class Books extends StatelessWidget {
                               ),
                             ),
                             Expanded(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(30),
-                                    bottomRight: Radius.circular(30),
+                              child: GestureDetector(
+                                onTap: () => {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          DetailsPage(),
+                                    ),
+                                  )
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30),
+                                      bottomRight: Radius.circular(30),
+                                    ),
                                   ),
+                                  child: Text(
+                                    "Read",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  alignment: Alignment.center,
                                 ),
-                                child: Text(
-                                  "Read",
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                                alignment: Alignment.center,
                               ),
                             ),
                           ],
@@ -108,15 +119,18 @@ class Books extends StatelessWidget {
                     ),
                     Positioned(
                       child: Container(
-                        // color: Colors.blue,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(books[index]["bookname"],style: TextStyle(fontWeight: FontWeight.bold,fontSize:20),),
-                            Text(books[index]["author"])
-                          ],
-                        )
-                      ),
+                          // color: Colors.blue,
+                          child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            books[index]["bookname"],
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          Text(books[index]["author"])
+                        ],
+                      )),
                       left: 20,
                       top: 135,
                     )
